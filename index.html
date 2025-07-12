@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ganta Solutions | Instagram Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --gold: #FFD700;
+            --dark-gold: #C5A000;
+            --black: #000000;
+            --dark-gray: #121212;
+            --light-gray: #222222;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            background-color: var(--black);
+            color: white;
+            font-family: 'Poppins', sans-serif;
+            min-height: 100vh;
+            padding: 2rem;
+            background-image: 
+                radial-gradient(circle at 25% 25%, rgba(255, 215, 0, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 75% 75%, rgba(255, 215, 0, 0.05) 0%, transparent 50%);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .logo {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 1rem;
+            border: 2px solid var(--gold);
+            border-radius: 50%;
+            padding: 5px;
+            object-fit: contain;
+        }
+        
+        h1 {
+            color: var(--gold);
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        
+        .subtitle {
+            color: #aaa;
+            font-size: 1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        /* 2-Row Grid Layout */
+        .grid-rows {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+        
+        .card {
+            background: var(--dark-gray);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 215, 0, 0.1);
+            position: relative;
+            height: 100%;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.2);
+            border-color: rgba(255, 215, 0, 0.3);
+        }
+        
+        .card-image {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            border-bottom: 1px solid rgba(255, 215, 0, 0.2);
+        }
+        
+        .card-content {
+            padding: 1.5rem;
+        }
+        
+        .card-title {
+            color: var(--gold);
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+        }
+        
+        .card-title i {
+            margin-right: 10px;
+            color: var(--gold);
+        }
+        
+        .card-description {
+            color: #bbb;
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+        
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 215, 0, 0.1);
+        }
+        
+        .card-link {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.2), rgba(197, 160, 0, 0.2));
+            color: var(--gold);
+            padding: 0.5rem 1.25rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+        }
+        
+        .card-link:hover {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.3), rgba(197, 160, 0, 0.3));
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.2);
+        }
+        
+        .card-link i {
+            margin-left: 5px;
+            font-size: 0.8rem;
+        }
+        
+        .card-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: var(--gold);
+            color: var(--black);
+            padding: 0.25rem 0.75rem;
+            border-radius: 50px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 215, 0, 0.1);
+            color: #666;
+            font-size: 0.85rem;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .social-link {
+            color: #777;
+            font-size: 1.25rem;
+            transition: color 0.3s ease;
+        }
+        
+        .social-link:hover {
+            color: var(--gold);
+        }
+        
+        /* Responsive Adjustments */
+        @media (max-width: 1024px) {
+            .row {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .row {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            body {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img src="https://portfolio.gantasolutions.com/logo.png" alt="Ganta Solutions Logo" class="logo">
+            <h1>Ganta Solutions</h1>
+            <p class="subtitle">Premium digital solutions showcased in our portfolio</p>
+        </header>
+        
+        <main>
+            <div class="grid-rows">
+                <!-- First Row -->
+                <div class="row">
+                    <!-- Project 1 -->
+                    <div class="card">
+                        <div class="card-badge">New</div>
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Project 1" class="card-image">
+                        <div class="card-content">
+                            <h3 class="card-title"><i class="fas fa-chart-line"></i> Analytics Pro</h3>
+                            <p class="card-description">Advanced business intelligence with real-time dashboards and predictive insights.</p>
+                            <div class="card-footer">
+                                <a href="https://portfolio.gantasolutions.com/analytics" class="card-link">View Project <i class="fas fa-arrow-right"></i></a>
+                                <span class="card-date">2023</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Project 2 -->
+                    <div class="card">
+                        <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Project 2" class="card-image">
+                        <div class="card-content">
+                            <h3 class="card-title"><i class="fas fa-mobile-alt"></i> Mobile Suite</h3>
+                            <p class="card-description">Cross-platform mobile experience with premium UX design patterns.</p>
+                            <div class="card-footer">
+                                <a href="https://portfolio.gantasolutions.com/mobile-app" class="card-link">View Project <i class="fas fa-arrow-right"></i></a>
+                                <span class="card-date">2023</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Project 3 -->
+                    <div class="card">
+                        <div class="card-badge">Featured</div>
+                        <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Project 3" class="card-image">
+                        <div class="card-content">
+                            <h3 class="card-title"><i class="fas fa-globe"></i> Web Enterprise</h3>
+                            <p class="card-description">Scalable web architecture with microservices and cloud deployment.</p>
+                            <div class="card-footer">
+                                <a href="https://portfolio.gantasolutions.com/web-platform" class="card-link">View Project <i class="fas fa-arrow-right"></i></a>
+                                <span class="card-date">2023</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Second Row -->
+                <div class="row">
+                    <!-- Project 4 -->
+                    <div class="card">
+                        <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Project 4" class="card-image">
+                        <div class="card-content">
+                            <h3 class="card-title"><i class="fas fa-robot"></i> AI Engine</h3>
+                            <p class="card-description">Machine learning solutions for industrial predictive analytics.</p>
+                            <div class="card-footer">
+                                <a href="https://portfolio.gantasolutions.com/ai-solution" class="card-link">View Project <i class="fas fa-arrow-right"></i></a>
+                                <span class="card-date">2023</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Project 5 -->
+                    <div class="card">
+                        <div class="card-badge">Popular</div>
+                        <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Project 5" class="card-image">
+                        <div class="card-content">
+                            <h3 class="card-title"><i class="fas fa-shopping-cart"></i> E-Commerce+</h3>
+                            <p class="card-description">High-conversion retail platform with AI recommendations.</p>
+                            <div class="card-footer">
+                                <a href="https://portfolio.gantasolutions.com/ecommerce" class="card-link">View Project <i class="fas fa-arrow-right"></i></a>
+                                <span class="card-date">2022</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Contact Card -->
+                    <div class="card">
+                        <div class="card-content" style="padding: 2rem; display: flex; flex-direction: column; height: 100%;">
+                            <div style="flex-grow: 1;">
+                                <h3 class="card-title"><i class="fas fa-envelope"></i> Get In Touch</h3>
+                                <p class="card-description">Ready to discuss your project? Contact our team for a consultation.</p>
+                            </div>
+                            <div class="card-footer" style="border-top: none; padding-top: 0;">
+                                <a href="https://portfolio.gantasolutions.com/contact" class="card-link" style="width: 100%; text-align: center; justify-content: center;">Contact Now <i class="fas fa-paper-plane"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        
+        <footer>
+            <p>© 2023 Ganta Solutions. All rights reserved.</p>
+            <div class="social-links">
+                <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
